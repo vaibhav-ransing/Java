@@ -10,16 +10,28 @@ public class MapToInt {
                 new Person("Bob", 25),
                 new Person("Charlie", 35));
 
+        List<Person> personsFiltered = persons.stream().filter((Person person) -> {
+            return person.getAge() > 25;
+        }).collect(Collectors.toList());
+
+        List<Person> personsWithIncreasedAge = persons.stream()
+                .map(person -> {
+                    Person updatedPerson = new Person(person.getName(), person.getAge() + 10);
+                    // Optionally, you can copy other fields of Person to updatedPerson
+                    return updatedPerson;
+                })
+                .collect(Collectors.toList());
+
         // Use mapToInt to extract ages as IntStream
         persons.stream()
                 .mapToInt(Person::getAge)
                 .forEach(System.out::println);
 
-        persons.stream().map((Person a)->{
-        return a.getAge()*2;
+        persons.stream().map((Person a) -> {
+            return a.getAge() * 2;
         });
 
-        List<Integer> p =  persons.stream()
+        List<Integer> p = persons.stream()
                 .map((Person a) -> {
                     return a.getAge() * 2;
                 }).collect(Collectors.toList());

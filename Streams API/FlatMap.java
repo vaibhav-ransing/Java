@@ -26,9 +26,8 @@ public class FlatMap {
             return (city + "-India");
         }).toList();
         System.out.println(citiesRenames);
-        
-        
-        // Give me count of employees who worked in Delhi City 
+
+        // Give me count of employees who worked in Delhi City
         int DelhiCityCount = empList.stream().flatMap(emp -> emp.getCities().stream())
                 .filter(city -> {
                     if (city.equals("Delhi")) {
