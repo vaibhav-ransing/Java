@@ -13,6 +13,7 @@ class User {
         this.id = userBuilder.id;
         this.email = userBuilder.email;
         this.name = userBuilder.name;
+        
     }
     // private User() {
     // }
